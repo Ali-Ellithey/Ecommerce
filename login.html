@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+
+  <body>
+    <div class="auth-container" id="userForm">
+      <h2>تسجيل الدخول</h2>
+      <form id="login-form">
+        <div class="input-group">
+          <label for="username">البريد الإلكتروني</label>
+          <input type="email" id="email" required />
+        </div>
+        <div class="input-group">
+          <label for="password">كلمة المرور</label>
+          <input type="password" id="password" required />
+        </div>
+        <div class="btnn">
+          <button type="submit" class="btn">تسجيل الدخول</button>
+        </div>
+      </form>
+      <p>
+        ليس لديك حساب؟
+        <a
+          onclick="window.location.href='/signUp.html'"
+          id="signupButton"
+          href="./signUp.html"
+          >تسجيل حساب جديد</a
+        >
+      </p>
+    </div>
+
+    <script src="./js/login.js"></script>
+  </body>
+</html>

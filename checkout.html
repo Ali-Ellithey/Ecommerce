@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./img/icon.png" />
+    <title>Check Out</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="cart">
+      <div class="top_cart">
+        <h3>Cart Items : <span class="count_cart">0</span></h3>
+        <span onclick="open_cart()" class="cloes_cart"
+          ><i class="fa-regular fa-circle-xmark"></i
+        ></span>
+      </div>
+      <div class="items_in_cart" id="cart_items">
+      </div>
+      <div class="bottom_cart">
+        <div class="total">
+          <p>Subtotal</p>
+          <p class="price_cart">$0</p>
+        </div>
+        <div class="button_cart">
+          <a href="/checkout.html" class="btn_cart">Checkout</a>
+          <a href="/index.html">
+
+            <span class="btn_cart trans_bg">Shop More</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="favorites active">
+      <div class="top_favorites">
+        <h3>Favorite Items : <span class="count_favorite">0</span></h3>
+        <span class="close_favorites"
+          ><i onclick="open_favorites()" class="fa-regular fa-circle-xmark"></i
+        ></span>
+      </div>
+      <div class="items_in_favorites" id="favorite_items"></div>
+    </div>
+    <header>
+      <div class="top_header">
+        <div class="container">
+          <a href="#" class="logo">
+            <img src="./img/logo.png" alt="img-logo" />
+          </a>
+
+          <form method="post" action="https://script.google.com/macros/s/AKfycbyh46Lt0uI7OuIrG20arLJTryrEYHXRrO_daHqWNyTEcAV9KcZVkEROcwRf7BVsRAQ/exec" class="search_box">
+            <div class="select_box">
+              <select id="category" name="category">
+                <option value="All categories">All categories</option>
+                <option value="Electronic & Digital">
+                  Electronic & Digital
+                </option>
+                <option value="Phones & Tablet">Phones & Tablet</option>
+                <option value="Fashions & Clothings">
+                  Fashions & Clothings
+                </option>
+                <option value="Television & Monitor">
+                  Television & Monitor
+                </option>
+                <option value="Jewelry & Watches">Jewelry & Watches</option>
+                <option value="Washing Machine">Washing Machine</option>
+                <option value="Toys & Hobbies">Toys & Hobbies</option>
+              </select>
+            </div>
+            <input
+              type="text"
+              name="search"
+              id="search"
+              placeholder="Search For Product"
+            />
+            <button type="Submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <div class="header_icons">
+            <div class="icon">
+              <a onclick="open_favorites(event)" href="#">
+                <i class="fa-regular fa-heart"></i>
+                <span class="count count_favorite">0</span>
+              </a>
+            </div>
+            <div class="icon">
+              <a href="#" onclick="open_cart(event)">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="count count_item">0</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bottom_header">
+        <div class="container">
+          <nav class="nav">
+            <span onclick="open_men()" class="open_menu">
+              <i class="fa-solid fa-bars"></i>
+            </span>
+
+            <div id="category_nav" class="category_nav">
+              <div onclick="open_Categ_List()" class="category_btn">
+                <i class="fa-solid fa-bars"></i>
+                <p>Browse Category</p>
+                <i class="fa-solid fa-angle-down"></i>
+              </div>
+              <div class="category_nav_list">
+                <a href="#">Top 10 offers</a>
+                <a href="#">Electronic & Digital </a>
+                <a href="#">Phones & Tablet</a>
+                <a href="#">Fashions & Clothings </a>
+                <a href="#">Television & Monitor </a>
+                <a href="#">Jewelry & Watches</a>
+                <a href="#">Toys & Hobbies</a>
+              </div>
+            </div>
+
+            <ul class="nav_links">
+              <span onclick="open_men()" class="close_menu">
+                <i class="fa-regular fa-circle-xmark"></i>
+              </span>
+              <li class="actives"><a href="/index.html">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Accessories</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Content</a></li>
+            </ul>
+          </nav>
+       <div class="login_signup btns">
+  <a id="loginBtn" href="/login.html" class="btn">
+    Log in <i class="fa-solid fa-right-to-bracket"></i>
+  </a>
+  <a id="logoutBtn" onclick="logout()" style="display:none;" class="btn">
+    Logout <i class="fa-solid fa-arrow-right-from-bracket"></i>
+  </a>
+  <a id="signUpBtn" href="/signUp.html" class="btn">
+    Sign Up <i class="fa-solid fa-user-plus"></i>
+  </a>
+</div>
+
+        </div>
+      </div>
+    </header>
+
+    <section class="checkout">
+      <form id="form_contact" method="post" action="https://script.google.com/macros/s/AKfycbzFEX-wgiGlEElYbsM7YDLAOJNbqilB2wh5F8g7kFfQbFOSz7phs5ZnbSyhObfVsjLQ/exec">
+        <input type="hidden" id="items" name="Items">
+        <input type="hidden" id="count" name="Count">
+        <input type="hidden" name="price" id="price_item">
+        <input type="hidden" id="total_Price" name="TotalPrice">
+
+        
+        <div class="container">
+          <div class="order_request">
+            <h1>Order Request</h1>
+            <div class="items " id="checkout_items">
+              
+            </div>
+            <div class="bottom_product">
+              <div class="shop_table">
+                <p>Subtotal :</p>
+                <span class="subtotal">$.0</span>
+              </div>
+              <div class="shop_table">
+                <p>Shipping :</p>
+                <span class="">$25.0</span>
+              </div>
+              <div class="shop_table">
+                <p>Total :</p>
+                <span class="totla_check">$.0</span>
+              </div>
+              <div class="button_dev">
+                <button type="submit">Place Order</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="input_info">
+            <div class="address">
+              <h2>Deliver Address</h2>
+              <div class="inputs">
+                <label for="Email">Email</label>
+<input type="email" name="email" placeholder="Email" required />
+
+                <label for="name">Name</label>
+                <input type="text" name="name" placeholder="Name" required />
+
+                                <label for="address">Address</label>
+                                <input type="text" name="address" placeholder="Address" required />
+                                
+                              
+                <label for="phone">Phone</label>
+                <input type="tel" name="phone" placeholder="Phone" required />
+
+            </div>
+          </div>
+             <div class="coupon">
+                <h2>Coupon Code</h2>
+                <div class="inputs">
+                  <label for="">Coupon Code</label>
+                  <input type="text" placeholder="Coupon Code" />
+                  <div class="btn_coupon"><button>Apply Coupon</button></div>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="big_row">
+          <img
+            class="logo_footer"
+            src="./img/logoW.png"
+            alt="2B Online Shop Logo"
+          />
+          <p>
+            Shop online The best deals and good offers need offers come store
+            &copy; 2B
+          </p>
+          <div class="icons_footer">
+            <a href="https://www.facebook.com/YOUR_FACEBOOK" target="_blank">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/733/733547.png"
+                alt="Facebook Icon"
+              />
+            </a>
+            <a href="https://www.instagram.com/YOUR_INSTAGRAM" target="_blank">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+                alt="Instagram Icon"
+              />
+            </a>
+            <a href="https://twitter.com/YOUR_TWITTER" target="_blank">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/733/733579.png"
+                alt="Twitter Icon"
+              />
+            </a>
+            <a href="https://www.tiktok.com/@YOUR_TIKTOK" target="_blank">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/3046/3046126.png"
+                alt="TikTok Icon"
+              />
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <h4>Find it Fast</h4>
+          <div class="links">
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Laptops & Computers</a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Smartphones & Tablets</a
+            >
+            <a href="#"><i class="fa-solid fa-caret-right"></i> TV & Audio</a>
+            <a href="#"><i class="fa-solid fa-caret-right"></i> Appliances</a>
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Jewelry & Watches</a
+            >
+          </div>
+        </div>
+        <div class="row">
+          <h4>Quick Links</h4>
+          <div class="links">
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Laptops & Computers</a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Smartphones & Tablets</a
+            >
+            <a href="#"><i class="fa-solid fa-caret-right"></i> TV & Audio</a>
+            <a href="#"><i class="fa-solid fa-caret-right"></i> Appliances</a>
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Jewelry & Watches</a
+            >
+          </div>
+        </div>
+        <div class="row">
+          <h4>Service Us</h4>
+          <div class="links">
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Laptops & Computers</a
+            >
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Smartphones & Tablets</a
+            >
+            <a href="#"><i class="fa-solid fa-caret-right"></i> TV & Audio</a>
+            <a href="#"><i class="fa-solid fa-caret-right"></i> Appliances</a>
+            <a href="#"
+              ><i class="fa-solid fa-caret-right"></i> Jewelry & Watches</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="bottom_footer">
+        <div class="container">
+          <p>&copy; <span>2B Store </span>All Rights Reserved.</p>
+          <div class="payment_img">
+            <img src="./img/payment_method.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </footer>
+      
+    <script src="./js/items.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/submit.js"></script>
+  </body>
+</html>
