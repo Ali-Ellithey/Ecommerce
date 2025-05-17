@@ -6,7 +6,7 @@
     <link rel="icon" href="./img/icon.png" />
     <title>2B | Online Store</title>
     <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -149,7 +149,7 @@
             >
               Logout <i class="fa-solid fa-arrow-right-from-bracket"></i>
             </a>
-            <a id="signUpBtn" href="/html/signUp.html" class="btn">
+            <a id="signUpBtn" href="/signUp.html" class="btn">
               Sign Up <i class="fa-solid fa-user-plus"></i>
             </a>
           </div>
@@ -448,7 +448,7 @@
       });
       function logout() {
         localStorage.removeItem("loggedIn");
-        window.location.href = "/html/login.html";
+        window.location.href = "/login.html";
       }
     </script>
 
