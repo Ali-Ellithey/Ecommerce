@@ -257,19 +257,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+    // لو مش مسجل دخول، حول لصفحة تسجيل الدخول
     if (!localStorage.getItem("loggedIn")) {
-        window.location.href = "/login.html";
-    } else {
-        // لو مسجل دخول
-        renderCart();
-        renderFavorites();
-        document.getElementById("loginBtn").style.display = "none";
-        document.getElementById("signUpBtn").style.display = "none";
-        document.getElementById("logoutBtn").style.display = "inline-block";
+        window.location.href = "login.html";  // رابط نسبي
+        return; // يمنع تنفيذ باقي الكود
     }
+
+    // لو مسجل دخول، ظبط الأزرار
+    document.getElementById("loginBtn").style.display = "none";
+    document.getElementById("signUpBtn").style.display = "none";
+    document.getElementById("logoutBtn").style.display = "inline-block";
+
+    // ممكن تحط هنا دوال أخرى زي renderCart() و renderFavorites() لو موجودين
+    renderCart();
+    renderFavorites();
 });
 
 function logout() {
     localStorage.removeItem("loggedIn");
-    window.location.href = "/login.html";
+    window.location.href = "login.html";  // رابط نسبي
 }

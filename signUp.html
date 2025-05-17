@@ -31,13 +31,13 @@
           <button type="submit" class="btn">إنشاء حساب</button>
         </div>
       </form>
-      <p>هل لديك حساب بالفعل؟ <a href="/login.html">تسجيل الدخول</a></p>
+      <p>هل لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a></p>
     </div>
     <script>
       // تحقق إذا كان المستخدم مسجل دخول
       if (localStorage.getItem("loggedIn") !== "true") {
         // لو مش مسجل → نوديه لصفحة التسجيل
-        window.location.href = "/signUp.html";
+        window.location.href = "signUp.html";
       }
       // بعد التسجيل الناجح
       localStorage.setItem("userExists", "true");
