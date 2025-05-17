@@ -185,7 +185,7 @@ function renderFavorites() {
         favoriteItems.forEach((item, index) => {
             favoriteItemsContainer.innerHTML += `
                 <div class="item_favorite">
-                <img src="../${item.img}" />
+                <img src="${item.img}" />
                     <div class="content">
                         <h4>${item.name}</h4>
                         <p class="price_cart">$${item.price}</p>
